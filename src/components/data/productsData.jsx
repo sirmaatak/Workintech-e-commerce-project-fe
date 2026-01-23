@@ -1,0 +1,42 @@
+export const products = [
+  {
+    id: 1,
+    title: "Graphic Design",
+    category: "English Department",
+    image: "/images/products/product1.jpg",
+    oldPrice: "$16.48",
+    price: "$6.48",
+  },
+  {
+    id: 2,
+    title: "Graphic Design",
+    category: "English Department",
+    image: "/images/products/product2.jpg",
+    oldPrice: "$16.48",
+    price: "$6.48",
+  },
+  {
+    id: 3,
+    title: "Graphic Design",
+    category: "English Department",
+    image: "/images/products/product1.jpg",
+    oldPrice: "$16.48",
+    price: "$6.48",
+  },
+  {
+    id: 4,
+    title: "Graphic Design",
+    category: "English Department",
+    image: "/images/products/product1.jpg",
+    oldPrice: "$16.48",
+    price: "$6.48",
+  },
+  {
+    id: 5,
+    title: "Graphic Design",
+    category: "English Department",
+    image: "/images/products/product1.jpg",
+    oldPrice: "$16.48",
+    price: "$6.48",
+  },
+];
