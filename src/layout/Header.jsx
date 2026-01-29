@@ -103,6 +103,13 @@ export default function Header() {
               Shop
             </NavLink>
             <NavLink
+              to="/contact"
+              className="text-sm font-bold tracking-[0.2px] text-[#737373] hover:text-[#252B42]"
+              activeClassName="text-[#252B42]"
+            >
+              Contact
+            </NavLink>
+            <NavLink
               to="/about"
               className="text-sm font-bold tracking-[0.2px] text-[#737373] hover:text-[#252B42]"
               activeClassName="text-[#252B42]"
