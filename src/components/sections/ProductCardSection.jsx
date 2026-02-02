@@ -41,10 +41,8 @@ export default function ProductCardSection() {
           </p>
         </div>
 
-        {/* LIST TOP ANCHOR (scroll target) */}
         <div ref={listTopRef} className="w-full scroll-mt-28" />
 
-        {/* LIST (sayfa başına 6 ürün) */}
         <div className="flex w-full flex-col gap-[30px] sm:flex-row sm:flex-wrap sm:gap-[30px]">
           {currentItems.map((product) => (
             <div
@@ -63,7 +61,6 @@ export default function ProductCardSection() {
           ))}
         </div>
 
-        {/* PAGINATION */}
         <div className="flex flex-wrap items-center justify-center gap-3">
           <button
             type="button"

@@ -22,15 +22,12 @@ export default function ShopCardSection() {
           </p>
         </div>
 
-        {/* CARDS */}
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-[30px]">
           {/* COL 1 */}
           {men && <ShopCard {...men} />}
 
-          {/* COL 2 */}
           {women && <ShopCard {...women} />}
 
-          {/* COL 3 (2 rows) */}
           <div className="flex flex-col gap-4">
             {accessories && <ShopCard {...accessories} />}
             {kids && <ShopCard {...kids} />}

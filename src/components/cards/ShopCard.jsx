@@ -3,7 +3,7 @@ export default function ShopCard({ title, image, size, className = "" }) {
 
   const base = [
     "relative overflow-hidden bg-white",
-    // default (senin mevcut davranışın)
+
     isLarge ? "h-[500px] w-[320px]" : "h-[242px] w-[325px]",
     "lg:w-[330px]",
   ].join(" ");

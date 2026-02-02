@@ -17,7 +17,6 @@ export default function BlogSection() {
           </p>
         </header>
 
-        {/* LIST: mobile = column, desktop = row */}
         <div className="w-full flex flex-col gap-[30px] items-center lg:flex-row lg:flex-wrap lg:justify-center">
           {blogData.map((post) => (
             <BlogCard key={post.id} post={post} />

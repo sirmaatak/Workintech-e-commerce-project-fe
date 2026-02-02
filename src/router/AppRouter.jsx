@@ -5,6 +5,7 @@ import BlogPage from "../pages/BlogPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import BlogDetailPage from "../pages/BlogDetailPage";
 import ContactPage from "../pages/ContactPage";
+import TeamPage from "../pages/TeamPage";
 
 export default function AppRouter() {
   return (
@@ -15,7 +16,7 @@ export default function AppRouter() {
       <Route exact path="/contact" component={ContactPage} />
       <Route exact path="/product/:id" component={ProductDetailPage} />
       <Route exact path="/blog/:id" component={BlogDetailPage} />
-
+      <Route exact path="/team" component={TeamPage} />
       <Route render={() => <div className="p-6 text-center">404</div>} />
     </Switch>
   );

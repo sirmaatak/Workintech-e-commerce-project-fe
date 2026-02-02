@@ -11,7 +11,6 @@ export default function ShopClientsSection() {
   return (
     <section className="w-full bg-[#FAFAFA]">
       <div className="mx-auto w-full max-w-[1050px] px-6">
-        {/* Mobile: alt alta, Desktop: tek satır / wrap */}
         <div className="flex flex-col items-center gap-[60px] py-[50px] lg:flex-row lg:flex-wrap lg:justify-between lg:gap-x-[30px] lg:gap-y-[60px]">
           {logos.map((logo) => (
             <div

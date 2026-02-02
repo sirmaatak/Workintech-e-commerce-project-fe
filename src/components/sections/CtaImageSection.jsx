@@ -3,7 +3,6 @@ export default function CtaImageSection() {
     <section className="w-full bg-white">
       <div className="w-full px-6">
         <div className="flex w-full flex-col items-center gap-16 lg:flex-row lg:items-center lg:gap-10">
-          {/* LEFT – IMAGE */}
           <div className="flex w-full justify-center lg:w-1/2 lg:justify-start">
             <div
               className="
@@ -22,7 +21,6 @@ export default function CtaImageSection() {
             />
           </div>
 
-          {/* RIGHT – CONTENT */}
           <div className="flex w-full flex-col items-center gap-8 text-center lg:w-1/2 lg:items-start lg:text-left">
             <h5 className="font-montserrat text-base font-bold tracking-[0.1px] text-[#BDBDBD]">
               SUMMER 2026

@@ -4,9 +4,7 @@ export default function ContactHeroSection() {
   return (
     <section className="w-full bg-white">
       <div className="mx-auto flex w-full max-w-[1050px] flex-col items-center justify-center px-6 py-20">
-        {/* ROW (mobile: column, desktop: 2 column) */}
         <div className="flex w-full flex-col items-center gap-[41px] lg:flex-row lg:items-center lg:justify-between">
-          {/* LEFT: MAIN CONTENT */}
           <div className="flex w-full flex-col items-center justify-center gap-10 lg:w-1/2 lg:items-start">
             <div className="flex flex-col items-center gap-10 lg:items-start">
               <h5 className="font-montserrat text-base font-bold leading-6 tracking-[0.1px] text-[#252B42]">
@@ -22,7 +20,6 @@ export default function ContactHeroSection() {
               </p>
             </div>
 
-            {/* NUMBERS */}
             <div className="flex flex-col items-center gap-5 lg:items-start">
               <div className="font-montserrat text-2xl font-bold leading-8 tracking-[0.1px] text-[#252B42]">
                 Phone : +451 215 215
@@ -32,7 +29,6 @@ export default function ContactHeroSection() {
               </div>
             </div>
 
-            {/* SOCIALS */}
             <div className="flex items-center gap-[34px] p-[10px] text-[#252B42]">
               <a href="#" aria-label="Twitter" className="inline-flex">
                 <Twitter className="h-[24px] w-[30px]" />

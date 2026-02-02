@@ -15,7 +15,6 @@ export default function ContactCardsSection() {
           </h2>
         </header>
 
-        {/* CARDS (mobile: alt alta, desktop: yan yana) */}
         <div className="flex w-full flex-col items-center gap-[30px] lg:flex-row lg:items-stretch lg:justify-between">
           <div className="w-full max-w-[328px] lg:max-w-none lg:flex-1">
             <ContactCard

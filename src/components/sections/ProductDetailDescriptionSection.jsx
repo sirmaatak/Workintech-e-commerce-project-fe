@@ -7,7 +7,6 @@ export default function ProductDescriptionSection({
 }) {
   return (
     <section className="w-full bg-white">
-      {/* TAB BAR */}
       <div className="w-full border-b border-[#ECECEC]">
         <div className="mx-auto flex w-full max-w-[1050px] items-center justify-center px-6">
           <div className="flex items-center">
@@ -29,11 +28,8 @@ export default function ProductDescriptionSection({
         </div>
       </div>
 
-      {/* CONTENT */}
       <div className="mx-auto flex w-full max-w-[1050px] flex-col gap-[30px] px-6 py-12">
-        {/* row: mobile alt alta, desktop 3 kolon */}
         <div className="flex w-full flex-col gap-[30px] lg:flex-row lg:items-start">
-          {/* COL 1: IMAGE */}
           <div className="w-full lg:w-[332px]">
             <div className="relative w-full overflow-hidden rounded-[9px] bg-[rgba(196,196,196,0.2)]">
               <div
@@ -45,7 +41,6 @@ export default function ProductDescriptionSection({
             </div>
           </div>
 
-          {/* COL 2: TEXT */}
           <div className="flex w-full flex-col gap-[30px] lg:w-[332px] lg:pb-[25px]">
             <h5 className="font-montserrat text-2xl font-bold leading-8 tracking-[0.1px] text-[#252B42]">
               {title}
