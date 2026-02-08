@@ -48,7 +48,7 @@ export default function ContactHeroSection() {
           {/* RIGHT: IMAGE BLOCK */}
           <div className="flex w-full items-center justify-center lg:w-1/2">
             <div className="flex h-[440px] w-full max-w-[387px] flex-col items-center justify-center rounded-[24px] bg-white">
-              <div className="flex h-[420px] w-full items-center justify-center rounded-[24px] bg-[#FFE9EA]">
+              <div className="flex h-[420px] w-full items-center justify-center rounded-full bg-[#FFE9EA]">
                 <div
                   className="h-[410px] w-[360px] rounded-[24px] bg-cover bg-center"
                   style={{
