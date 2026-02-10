@@ -7,6 +7,7 @@ import BlogDetailPage from "../pages/BlogDetailPage";
 import ContactPage from "../pages/ContactPage";
 import TeamPage from "../pages/TeamPage";
 import AboutPage from "../pages/AboutPage";
+import SignupPage from "../pages/SignupPage";
 
 export default function AppRouter() {
   return (
@@ -19,6 +20,7 @@ export default function AppRouter() {
       <Route exact path="/blog/:id" component={BlogDetailPage} />
       <Route exact path="/team" component={TeamPage} />
       <Route exact path="/about" component={AboutPage} />
+      <Route exact path="/signup" component={SignupPage} />
     </Switch>
   );
 }

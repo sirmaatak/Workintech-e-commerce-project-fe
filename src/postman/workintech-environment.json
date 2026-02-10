@@ -1,0 +1,88 @@
+{
+	"id": "e1834fd9-e4ef-4644-b360-0d6ab78ab584",
+	"name": "Workintech FE E-commerce (dev)",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "https://workintech-fe-ecommerce.onrender.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "name",
+			"value": "Test User",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "Aa1!aaaa",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "customerRoleId",
+			"value": "3",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "storeRoleId",
+			"value": "2",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "storeName",
+			"value": "Test Store",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "storePhone",
+			"value": "+905551112233",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "storeTaxNo",
+			"value": "T1234V123456",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "storeIban",
+			"value": "TR930006701000000001234567",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "emailBase",
+			"value": "sirma+postman",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "emailDomain",
+			"value": "gmail.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "adminRoleId",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "uniqueEmail",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-02-10T18:57:09.145Z",
+	"_postman_exported_using": "Postman/11.84.1"
+}

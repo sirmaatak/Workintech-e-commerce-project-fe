@@ -1,0 +1,279 @@
+{
+  "info": {
+    "_postman_id": "e75824e2-27a6-4c55-90e6-d22f593cb541",
+    "name": "Workintech FE E-commerce API",
+    "description": "Collection for Workintech FE E-commerce project. Includes roles and signup endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48646931"
+  },
+  "item": [
+    {
+      "name": "Roles",
+      "item": [
+        {
+          "name": "GET /roles",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response is JSON', function () {",
+                  "  pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test('Roles list exists', function () {",
+                  "  const data = pm.response.json();",
+                  "  const list = Array.isArray(data) ? data : (data.roles || []);",
+                  "  pm.expect(list).to.be.an('array');",
+                  "  pm.expect(list.length).to.be.above(0);",
+                  "});",
+                  "",
+                  "// Cache role ids by code if present",
+                  "try {",
+                  "  const data = pm.response.json();",
+                  "  const list = Array.isArray(data) ? data : (data.roles || []);",
+                  "  const customer = list.find(r => r.code === 'customer');",
+                  "  const store = list.find(r => r.code === 'store');",
+                  "  const admin = list.find(r => r.code === 'admin');",
+                  "  if (customer?.id) pm.environment.set('customerRoleId', String(customer.id));",
+                  "  if (store?.id) pm.environment.set('storeRoleId', String(store.id));",
+                  "  if (admin?.id) pm.environment.set('adminRoleId', String(admin.id));",
+                  "} catch (e) {}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/roles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "roles"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "POST /signup (Customer/Admin payload)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// Ensure unique email per run",
+                  "const ts = Date.now();",
+                  "const base = pm.environment.get('emailBase') || 'sirma+test';",
+                  "const domain = pm.environment.get('emailDomain') || 'gmail.com';",
+                  "pm.environment.set('uniqueEmail', `${base}.${ts}@${domain}`);",
+                  "",
+                  "// Fallback role id if not set via GET /roles",
+                  "if (!pm.environment.get('customerRoleId')) {",
+                  "  pm.environment.set('customerRoleId', '3');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200/201', function () {",
+                  "  pm.expect([200, 201]).to.include(pm.response.code);",
+                  "});",
+                  "",
+                  "pm.test('Response is JSON (or empty)', function () {",
+                  "  if (pm.response.text()) pm.response.to.be.json;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"{{name}}\",\n  \"email\": \"{{uniqueEmail}}\",\n  \"password\": \"{{password}}\",\n  \"role_id\": {{customerRoleId}}\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/signup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "signup"
+              ]
+            },
+            "description": "Customer/Admin format: { name, email, password, role_id }"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /signup (Store payload)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// Ensure unique email per run",
+                  "const ts = Date.now();",
+                  "const base = pm.environment.get('emailBase') || 'sirma+store';",
+                  "const domain = pm.environment.get('emailDomain') || 'gmail.com';",
+                  "pm.environment.set('uniqueEmail', `${base}.${ts}@${domain}`);",
+                  "",
+                  "// Fallback role id if not set via GET /roles",
+                  "if (!pm.environment.get('storeRoleId')) {",
+                  "  pm.environment.set('storeRoleId', '2');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200/201', function () {",
+                  "  pm.expect([200, 201]).to.include(pm.response.code);",
+                  "});",
+                  "",
+                  "pm.test('Response is JSON (or empty)', function () {",
+                  "  if (pm.response.text()) pm.response.to.be.json;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"{{name}}\",\n  \"email\": \"{{uniqueEmail}}\",\n  \"password\": \"{{password}}\",\n  \"role_id\": {{storeRoleId}},\n  \"store\": {\n    \"name\": \"{{storeName}}\",\n    \"phone\": \"{{storePhone}}\",\n    \"tax_no\": \"{{storeTaxNo}}\",\n    \"bank_account\": \"{{storeIban}}\"\n  }\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/signup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "signup"
+              ]
+            },
+            "description": "Store format: { name, email, password, role_id, store: { name, phone, tax_no, bank_account } }"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "exec": [
+          "// Collection-level defaults (can be overridden in Environment)",
+          "if (!pm.environment.get('password')) pm.environment.set('password', 'Aa1!aaaa');",
+          "if (!pm.environment.get('name')) pm.environment.set('name', 'Test User');",
+          "",
+          "if (!pm.environment.get('storeName')) pm.environment.set('storeName', 'Test Store');",
+          "if (!pm.environment.get('storePhone')) pm.environment.set('storePhone', '+905551112233');",
+          "if (!pm.environment.get('storeTaxNo')) pm.environment.set('storeTaxNo', 'T1234V123456');",
+          "if (!pm.environment.get('storeIban')) pm.environment.set('storeIban', 'TR930006701000000001234567');"
+        ],
+        "type": "text/javascript"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://workintech-fe-ecommerce.onrender.com"
+    },
+    {
+      "key": "name",
+      "value": "Test User"
+    },
+    {
+      "key": "password",
+      "value": "Aa1!aaaa"
+    },
+    {
+      "key": "customerRoleId",
+      "value": "3"
+    },
+    {
+      "key": "storeRoleId",
+      "value": "2"
+    },
+    {
+      "key": "storeName",
+      "value": "Test Store"
+    },
+    {
+      "key": "storePhone",
+      "value": "+905551112233"
+    },
+    {
+      "key": "storeTaxNo",
+      "value": "T1234V123456"
+    },
+    {
+      "key": "storeIban",
+      "value": "TR930006701000000001234567"
+    },
+    {
+      "key": "emailBase",
+      "value": "sirma+postman"
+    },
+    {
+      "key": "emailDomain",
+      "value": "gmail.com"
+    },
+    {
+      "key": "uniqueEmail",
+      "value": ""
+    }
+  ]
+}

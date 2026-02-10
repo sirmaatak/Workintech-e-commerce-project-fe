@@ -129,7 +129,7 @@ export default function Header() {
           <div className="flex items-center gap-4 lg:gap-6">
             {/* Desktop Auth */}
             <Link
-              to="/login"
+              to="/signup"
               className="hidden items-center gap-2 text-sm font-bold tracking-[0.2px] text-[#23A6F0] hover:opacity-90 lg:flex"
             >
               <User className="h-4 w-4" />
