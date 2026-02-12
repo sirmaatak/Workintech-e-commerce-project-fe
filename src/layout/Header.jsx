@@ -12,13 +12,16 @@ import {
   Facebook,
   Twitter,
 } from "lucide-react";
+import { useSelector } from "react-redux";
+import Gravatar from "react-gravatar";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const user = useSelector((state) => state.client.user);
+  const isLoggedIn = !!user?.email;
 
   return (
     <header className="w-full bg-white">
-      {/* DARK TOP BAR (Desktop) */}
       <div className="hidden w-full bg-[#252B42] text-white lg:flex">
         <div className="mx-auto flex w-full max-w-[1050px] items-center justify-between px-6 py-3">
           <div className="flex items-center gap-6">
@@ -128,13 +131,41 @@ export default function Header() {
           {/* ACTIONS */}
           <div className="flex items-center gap-4 lg:gap-6">
             {/* Desktop Auth */}
-            <Link
-              to="/signup"
-              className="hidden items-center gap-2 text-sm font-bold tracking-[0.2px] text-[#23A6F0] hover:opacity-90 lg:flex"
-            >
-              <User className="h-4 w-4" />
-              <span>Login / Register</span>
-            </Link>
+            {isLoggedIn ? (
+              <div className="hidden items-center gap-2 lg:flex">
+                <Gravatar
+                  email={user.email}
+                  size={28}
+                  default="identicon"
+                  className="rounded-full"
+                />
+                <div className="flex flex-col leading-tight">
+                  <span className="text-sm font-bold tracking-[0.2px] text-[#23A6F0]">
+                    {user.name || user.email}
+                  </span>
+                  <span className="text-[11px] font-medium text-[#737373]">
+                    {user.email}
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div className="hidden items-center gap-4 lg:flex">
+                <Link
+                  to="/login"
+                  className="flex items-center gap-1 text-sm font-bold tracking-[0.2px] text-[#23A6F0] hover:opacity-90"
+                >
+                  <User className="h-4 w-4" />
+                  <span>Login</span>
+                </Link>
+
+                <Link
+                  to="/signup"
+                  className="text-sm font-bold tracking-[0.2px] text-[#23A6F0] hover:opacity-90"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
 
             {/* Icons */}
             <button
@@ -202,14 +233,37 @@ export default function Header() {
               Blog
             </NavLink>
 
-            <Link
-              to="/login"
-              onClick={() => setOpen(false)}
-              className="mt-2 flex items-center gap-2 text-base font-bold text-[#23A6F0]"
-            >
-              <User className="h-4 w-4" />
-              <span>Login / Register</span>
-            </Link>
+            {isLoggedIn ? (
+              <div className="mt-2 flex items-center gap-3 text-[#23A6F0]">
+                <Gravatar
+                  email={user.email}
+                  size={36}
+                  default="identicon"
+                  className="rounded-full"
+                />
+                <div className="flex flex-col leading-tight">
+                  <span className="text-base font-bold">
+                    {user.name || user.email}
+                  </span>
+                  <span className="text-sm text-[#737373]">{user.email}</span>
+                </div>
+              </div>
+            ) : (
+              <div className="mt-2 flex flex-col gap-3 text-base font-bold text-[#23A6F0]">
+                <Link
+                  to="/login"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-2"
+                >
+                  <User className="h-4 w-4" />
+                  <span>Login</span>
+                </Link>
+
+                <Link to="/signup" onClick={() => setOpen(false)}>
+                  Register
+                </Link>
+              </div>
+            )}
           </nav>
         )}
       </div>

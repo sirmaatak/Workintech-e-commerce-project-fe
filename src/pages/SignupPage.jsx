@@ -165,7 +165,7 @@ export default function SignupPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4">
       <div className="flex w-full max-w-2xl flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-        <h1 className="text-center text-2xl font-bold text-blue-500">
+        <h1 className="text-center text-2xl font-bold text-[#23A6F0]">
           Create Account
         </h1>
 
@@ -354,7 +354,7 @@ export default function SignupPage() {
             disabled={submitting}
             className={[
               "flex items-center justify-center rounded-xl py-3 text-base font-semibold text-white",
-              "bg-blue-500 hover:bg-blue-600",
+              "bg-[#23A6F0] hover:bg-blue-600",
               "disabled:cursor-not-allowed disabled:opacity-60",
             ].join(" ")}
           >
